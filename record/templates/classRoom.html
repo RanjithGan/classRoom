@@ -1,0 +1,27 @@
+ {% extends 'index.html' %}
+
+ {% block body%}
+ <div class="container">
+
+ <table class="table">
+    <tr>
+        <th>Student name</th>
+        <th>Attendance</th>
+        <th>submit</th>
+    </tr>
+
+    {% for student in students %}
+        <tr>
+        <form action="{% url 'classRoom' %}" method='POST'>
+            {% csrf_token %}
+            <td><input type="text" value="{{ student.name }}" name="student_name" maxlength="120" required="" id="id_student_name"></td>
+            <td>{{ form.attendance }}</td>
+            <td><input type="submit" value="submit" id=""></td>
+        </form>
+        </tr>
+    {% endfor %}
+
+ </table>
+</div>
+ 
+ {% endblock body%}

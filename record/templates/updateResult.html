@@ -1,0 +1,27 @@
+ {% extends 'index.html' %}
+
+ {% block body %}
+ <div class="container">
+
+     <table class="table">
+        <tr>
+            <th>Student name</th>
+            <th>Roll number</th>
+            <th>Marks</th>
+            <th>Update</th>
+        </tr>
+
+        {% for student in students %}
+
+            <tr>
+                <td>{{ student.name }}</td>
+                <td>{{ student.roll_number }}</td>
+                <td>{{ student.marks }}</td>
+                <td><a href="{% url 'updateStudent' student.id %}"class="button">Update</a></td>
+                
+            </tr>
+        {% endfor %}
+
+     </table>
+ </div>
+ {% endblock body %}
